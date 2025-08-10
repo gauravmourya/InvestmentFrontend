@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function formatLargeNumber(num) {
+export function formatLargeNumber(num) {
   if (num === null || num === undefined) return "";
   if (num < 1000) return num.toString();
 
@@ -36,7 +36,7 @@ export function Table({ columns, data, isDrilldown = false }) {
             <tr>
               <td
                 colSpan={columns.length}
-                className="text-center py-6 text-gray-500 border border-gray-300"
+                className="text-center py-6 text-gray-500 border-b border-gray-300"
               >
                 No data available
               </td>

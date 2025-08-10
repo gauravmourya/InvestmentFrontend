@@ -1,5 +1,3 @@
-import React from "react";
-
 export function FilterButtons({ filters, activeFilter, onFilterChange }) {
   return (
     <div className="flex gap-3 mb-4">

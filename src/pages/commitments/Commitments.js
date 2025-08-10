@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { FilterButtons, Pagination, Table } from "../../components";
 import usePagineatedCommitmentData from "../../hooks/usePagineatedCommitmentData";
+import { formatLargeNumber } from "../../components/common/Table";
 
 export function Commitments() {
   const { investorId } = useParams();
@@ -27,10 +28,10 @@ export function Commitments() {
   const dynamicFilters = useMemo(() => {
     const total = assetClassGroups.reduce((sum, g) => sum + g.totalSum, 0);
     return [
-      { label: "All", value: `£${(total / 1_000_000).toFixed(1)}M` },
+      { label: "All", value: `£${formatLargeNumber(total)}` },
       ...assetClassGroups.map(group => ({
         label: group.name,
-        value: `£${(group.totalSum / 1_000_000).toFixed(1)}M`
+        value: `£${formatLargeNumber(group.totalSum)}`
       }))
     ];
   }, [assetClassGroups]);

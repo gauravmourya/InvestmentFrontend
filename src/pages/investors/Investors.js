@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Pagination, Table } from "../../components";
 import usePaginatedInvestorData from "../../hooks/usePaginatedInvestorData";
 
